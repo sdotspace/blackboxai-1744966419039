@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Goals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+        .goal-card {
+            transition: all 0.2s ease;
+        }
+        .goal-card:hover {
+            background-color: #222;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 max-w-2xl mx-auto">
+    <header class="mb-8">
+        <h1 class="text-3xl font-bold mb-2">Weekly Goals</h1>
+        <div class="flex gap-2">
+            <input type="text" id="goalInput" placeholder="Add new goal..." 
+                   class="flex-1 p-2 rounded bg-gray-900 border border-gray-700 focus:outline-none focus:border-white">
+            <button id="addGoal" class="px-4 py-2 bg-white text-black rounded font-medium hover:bg-gray-200 transition">
+                Add
+            </button>
+        </div>
+    </header>
+
+    <div id="goalList" class="space-y-2"></div>
+
+    <div class="mt-8 flex justify-between items-center">
+        <div id="goalCount" class="text-sm text-gray-400">0 goals</div>
+        <button id="clearGoals" class="text-sm text-gray-400 hover:text-white">
+            Clear All
+        </button>
+    </div>
+
+    <nav class="fixed bottom-0 left-0 right-0 bg-black border-t border-gray-800 p-4">
+        <div class="flex justify-around max-w-2xl mx-auto">
+            <a href="index.html" class="text-gray-400 hover:text-white">
+                <i class="fas fa-list"></i>
+            </a>
+            <a href="weekly.html" class="text-white">
+                <i class="fas fa-calendar-week"></i>
+            </a>
+            <a href="calendar.html" class="text-gray-400 hover:text-white">
+                <i class="fas fa-calendar-alt"></i>
+            </a>
+            <a href="flashcards.html" class="text-gray-400 hover:text-white">
+                <i class="fas fa-layer-group"></i>
+            </a>
+        </div>
+    </nav>
+
+    <script src="../src/weekly.js"></script>
+</body>
+</html>
