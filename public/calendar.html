@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar View</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+        .calendar-day {
+            transition: all 0.2s ease;
+        }
+        .calendar-day:hover {
+            background-color: #222;
+        }
+        .has-event::after {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 6px;
+            background-color: white;
+            border-radius: 50%;
+            margin: 2px auto 0;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 max-w-2xl mx-auto">
+    <header class="mb-8">
+        <div class="flex justify-between items-center">
+            <h1 class="text-3xl font-bold" id="monthYearDisplay">Month Year</h1>
+            <div class="flex gap-2">
+                <button id="prevMonth" class="p-2 rounded border border-gray-700 hover:bg-gray-800">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="today" class="p-2 rounded border border-gray-700 hover:bg-gray-800">
+                    Today
+                </button>
+                <button id="nextMonth" class="p-2 rounded border border-gray-700 hover:bg-gray-800">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mb-4 grid grid-cols-7 gap-1 text-center">
+        <div class="p-2 text-sm font-medium">Sun</div>
+        <div class="p-2 text-sm font-medium">Mon</div>
+        <div class="p-2 text-sm font-medium">Tue</div>
+        <div class="p-2 text-sm font-medium">Wed</div>
+        <div class="p-2 text-sm font-medium">Thu</div>
+        <div class="p-2 text-sm font-medium">Fri</div>
+        <div class="p-2 text-sm font-medium">Sat</div>
+    </div>
+
+    <div id="calendarGrid" class="grid grid-cols-7 gap-1"></div>
+
+    <div id="eventModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4">
+        <div class="bg-gray-900 rounded-lg p-6 w-full max-w-md">
+            <h2 class="text-xl font-bold mb-4" id="eventModalTitle">Add Event</h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium mb-1">Title</label>
+                    <input type="text" id="eventTitle" class="w-full p-2 rounded bg-gray-800 border border-gray-700">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Date</label>
+                    <input type="date" id="eventDate" class="w-full p-2 rounded bg-gray-800 border border-gray-700">
+                </div>
+                <div class="flex justify-end gap-2">
+                    <button id="cancelEvent" class="px-4 py-2 rounded border border-gray-700">Cancel</button>
+                    <button id="saveEvent" class="px-4 py-2 bg-white text-black rounded">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="fixed bottom-0 left-0 right-0 bg-black border-t border-gray-800 p-4">
+        <div class="flex justify-around max-w-2xl mx-auto">
+            <a href="index.html" class="text-gray-400 hover:text-white">
+                <i class="fas fa-list"></i>
+            </a>
+            <a href="weekly.html" class="text-gray-400 hover:text-white">
+                <i class="fas fa-calendar-week"></i>
+            </a>
+            <a href="calendar.html" class="text-white">
+                <i class="fas fa-calendar-alt"></i>
+            </a>
+            <a href="flashcards.html" class="text-gray-400 hover:text-white">
+                <i class="fas fa-layer-group"></i>
+            </a>
+        </div>
+    </nav>
+
+    <script src="../src/calendar.js"></script>
+</body>
+</html>
